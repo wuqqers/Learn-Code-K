@@ -106,6 +106,7 @@ Bu proje MIT lisansı altında lisanslanmıştır - detaylar için `LICENSE.md` 
 
 Your Name - [@wuqqers](https://github.com/wuqqers)  
 Proje Linki: [https://github.com/wuqqers/Learn-Code-K](https://github.com/wuqqers/Learn-Code-K)
+https://omerkayaekici.com/
 
 ---
 
