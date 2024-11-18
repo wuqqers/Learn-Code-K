@@ -2,7 +2,7 @@
 # 🚀 K! Learn - İnteraktif Eğitim Platformu
 
 <p align="center">
-<img src="https://hizliresim.com/3qdfn58" alt="K! Learn" width="200"/>
+https://omerkayaekici.com/
 </p>
 
 ## 📋 Proje Hakkında
