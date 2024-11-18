@@ -75,7 +75,7 @@ export default function Register() {
             Create your account
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Join DevLearn and start your learning journey
+            Join K! Learn and start your learning journey
           </p>
         </div>
 

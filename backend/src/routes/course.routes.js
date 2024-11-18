@@ -10,15 +10,15 @@ import {
 
 const router = express.Router();
 
-// Protected routes
-router.use(protect); // Tüm rotaları koruma altına al
-
+// Public routes
 router.get('/', getCourses);
-router.get('/:id', getCourse);
-router.get('/:courseId/progress', getCourseProgress);
-router.post('/progress', updateProgress);
+
+// Protected routes
+router.get('/:id', protect, getCourse);
+router.get('/:courseId/progress', protect, getCourseProgress);
+router.post('/progress', protect, updateProgress);
 
 // Admin only routes
-router.post('/', restrictTo('admin'), createCourse);
+router.post('/', protect, restrictTo('admin'), createCourse);
 
 export default router;

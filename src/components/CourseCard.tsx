@@ -59,7 +59,7 @@ export default function CourseCard({ course }: CourseCardProps) {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300">
+    <div className="bg-white rounded-lg shadow-sm overflow-hidden flex flex-col min-h-[400px]">
       <div className="p-6">
         <div className="flex items-center justify-between mb-4">
           <span
@@ -94,7 +94,7 @@ export default function CourseCard({ course }: CourseCardProps) {
           </span>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-2 mb-6">
           {course.modules.map((module, index) => (
             <div
               key={module.id || `module-${index}`}
@@ -121,7 +121,7 @@ export default function CourseCard({ course }: CourseCardProps) {
         </div>
       </div>
 
-      <div className="px-6 py-4 bg-gray-50 border-t border-gray-100">
+      <div className="mt-auto p-6 pt-0">
         <button
           onClick={handleStartCourse}
           disabled={isCompleted}

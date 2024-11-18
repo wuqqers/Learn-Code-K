@@ -45,35 +45,41 @@ const moduleSchema = new mongoose.Schema({
 const courseSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true,
+    required: [true, 'Kurs başlığı zorunludur'],
+    trim: true
   },
   description: {
     type: String,
-    required: true,
+    required: [true, 'Kurs açıklaması zorunludur']
   },
   level: {
     type: String,
-    enum: ['beginner', 'intermediate', 'advanced'],
-    required: true,
+    enum: ['Beginner', 'Intermediate', 'Advanced'],
+    required: true
   },
-  technology: {
-    type: String,
-    required: true,
+  thumbnail: String,
+  enrolledCount: {
+    type: Number,
+    default: 0
   },
-  duration: {
-    type: String,
-    required: true,
-  },
-  type: {
-    type: String,
-    enum: ['quiz', 'dragdrop', 'coding'],
-    required: true,
-  },
-  objectives: [{
-    type: String,
-    required: true,
+  modules: [{
+    title: String,
+    description: String,
+    content: String,
+    exercise: {
+      type: {
+        type: String,
+        enum: ['quiz', 'coding']
+      },
+      question: String,
+      options: [String],
+      correctAnswer: Number
+    }
   }],
-  modules: [moduleSchema],
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 export const Course = mongoose.model("Course", courseSchema);

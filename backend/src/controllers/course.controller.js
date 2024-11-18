@@ -37,22 +37,39 @@ export const getCourseProgress = asyncHandler(async (req, res) => {
 
 export const getCourses = asyncHandler(async (req, res) => {
   try {
-    const courses = await Course.find().select("-modules.content");
+    const courses = await Course.find()
+      .select('title description level thumbnail enrolledCount modules')
+      .lean();
     
-    // Kullanıcı giriş yapmamışsa sadece kursları döndür
+    if (!courses || courses.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: 'No courses found'
+      });
+    }
+
+    // Kullanıcı giriş yapmamışsa temel kurs bilgilerini döndür
     if (!req.user) {
       return res.json({
         success: true,
         data: courses.map(course => ({
-          ...course.toObject(),
+          ...course,
           progress: 0,
-          isCompleted: false
+          isCompleted: false,
+          enrolledCount: course.enrolledCount || 0,
+          modules: course.modules.map(module => ({
+            title: module.title,
+            description: module.description
+          }))
         }))
       });
     }
 
-    // Progress bilgilerini al
-    const progressList = await Progress.find({ user: req.user._id });
+    // Kullanıcı giriş yapmışsa progress bilgilerini ekle
+    const progressList = await Progress.find({ 
+      user: req.user._id,
+      course: { $in: courses.map(c => c._id) }
+    }).lean();
 
     const coursesWithProgress = courses.map(course => {
       const progress = progressList.find(p => 
@@ -60,7 +77,7 @@ export const getCourses = asyncHandler(async (req, res) => {
       );
 
       return {
-        ...course.toObject(),
+        ...course,
         progress: progress?.progress || 0,
         isCompleted: progress?.isCompleted || false,
         completedModules: progress?.completedModules || []
@@ -72,6 +89,7 @@ export const getCourses = asyncHandler(async (req, res) => {
       data: coursesWithProgress
     });
   } catch (error) {
+    console.error('Error in getCourses:', error);
     throw new AppError('Error fetching courses', 500);
   }
 });

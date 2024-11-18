@@ -1,15 +1,21 @@
 import api from './axios';
 import { Course } from '../types';
+import { courses as mockCourses } from '../data/mockData';
 
 export const getCourses = async (): Promise<Course[]> => {
-  const response = await api.get('/courses');
-  console.log('API Response:', response.data);
-  
-  return response.data.data.map((course: any) => ({
-    ...course,
-    progress: course.progress || 0,
-    isCompleted: Boolean(course.isCompleted) || course.progress === 100
-  }));
+  try {
+    const response = await api.get('/courses');
+    
+    if (response.data.success) {
+      console.log('Backend response:', response.data);
+      return response.data.data;
+    }
+    
+    throw new Error('Failed to fetch courses');
+  } catch (error) {
+    console.error('Error fetching courses:', error);
+    throw error;
+  }
 };
 
 export const getCourse = async (id: string): Promise<Course> => {

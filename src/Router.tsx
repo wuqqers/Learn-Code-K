@@ -6,7 +6,8 @@ import CourseManagement from './pages/admin/CourseManagement';
 import CourseView from './pages/CourseView'; // Yeni import
 import PrivateRoute from './components/PrivateRoute';
 import Navbar from './components/Navbar';
-
+import Home from './pages/Home';
+import Courses from './pages/Courses';
 export default function AppRouter() {
   const location = useLocation();
   const showNavbar = !['/login', '/register'].includes(location.pathname);
@@ -14,9 +15,10 @@ export default function AppRouter() {
   return (
     <>
       {showNavbar && <Navbar />}
-      <div className={`${showNavbar ? 'pt-16' : ''}`}>
+      <div className={`${showNavbar ? '' : ''}`}>
         <Routes>
           {/* Public routes */}
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           
@@ -50,8 +52,8 @@ export default function AppRouter() {
             }
           />
           
-          {/* Default redirect */}
-          <Route path="/" element={<Navigate to="/dashboard" />} />
+          {/* Courses route */}
+          <Route path="/courses" element={<Courses />} />
         </Routes>
       </div>
     </>
