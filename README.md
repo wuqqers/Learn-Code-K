@@ -58,11 +58,11 @@ K! Learn, eğitimi oyunlaştırma yöntemleriyle birleştirerek öğrenmeyi daha
 ## 📱 Ekran Görüntüleri
 
 <p align="center">
-<img src="https://hizliresim.com/3qdfn58" width="200" />
-<img src="https://hizliresim.com/nfn5blf" width="200" />
-<img src="https://hizliresim.com/phubryw" width="200" />
-<img src="https://hizliresim.com/2y6xw02" width="200" />
-<img src="https://hizliresim.com/gmh2plh" width="200" />
+<img src="https://i.hizliresim.com/3qdfn58.jpeg" width="200" />
+<img src="https://i.hizliresim.com/nfn5blf.jpeg" width="200" />
+<img src="https://i.hizliresim.com/phubryw.jpeg" width="200" />
+<img src="https://i.hizliresim.com/2y6xw02.jpeg" width="200" />
+<img src="https://i.hizliresim.com/gmh2plh.jpeg" width="200" />
 </p>
 
 ## 🎯 Kullanım Alanları
