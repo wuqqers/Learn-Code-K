@@ -77,8 +77,8 @@ K! Learn, eğitimi oyunlaştırma yöntemleriyle birleştirerek öğrenmeyi daha
 
 - [ ] Mobil uygulama geliştirme
 - [ ] Gerçek zamanlı sohbet özelliği
-- [ ] Eğitmen paneli
-- [ ] İçerik yönetim sistemi
+- [V] Eğitmen paneli
+- [V] İçerik yönetim sistemi
 - [ ] Çoklu dil desteği
 
 ## 🤝 Katkıda Bulunma
